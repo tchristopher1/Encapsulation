@@ -7,15 +7,13 @@ private int numCap = 0;
 private int numCount = 0;
 
 ```
-// get method for name to access  
-// private variable geekName 
+// get method to access password. 
 public String getPassword()  
 { 
   return password; 
 } 
 
-// set method for name to access  
-// private variable geekName 
+// set method to set password. 
 public void setPassword(String newPassword) 
 { 
 	for(int i = 0; i < newPassword.length(); i++){
