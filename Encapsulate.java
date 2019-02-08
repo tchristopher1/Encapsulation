@@ -1,78 +1,41 @@
-import java.util.Scanner;
+public class Encapsulate
+{
+// private variables declared
+// can only be accessed by public methods of class
+private String password;
+private int numCap = 0;
+private int numCount = 0;
 
-class Password1 {
+```
+// get method for name to access  
+// private variable geekName 
+public String getPassword()  
+{ 
+  return password; 
+} 
 
-public static int value = printDirections();
-public static int printDirections() {
-    
-    System.out.println("Welcome to Password Checker.");
-    System.out.println("Please create a password that has at least 10 characters.");
-    System.out.println("Your password must include at least one capital letter and one number between (1-9).");
-
-    return 0;
-
-}
-
-public static void main (String [] args) {
-
-    String enterPass;
-    
-    Scanner enter = new Scanner (System.in);
-            
-    System.out.print("\r\nTry Your Password: ");
-    enterPass = enter.next();             
-    System.out.println(Validate(enterPass));        
-    System.out.println("");
-    
-    main(args);
-
-}
-
-public static String Validate (String Pass) {
-
-    String outcome = "Your password meets the criteria. Thanks for playing.";
-    
-    int passLength = 0;                   
-    int numbers = 0;
-    int caps = 0;
-    
-    for ( int x = 0; x < Pass.length(); x++ ) {
-        
-        if (( Pass.charAt(x) > 48 && Pass.charAt(x) < 58 )) {
-            numbers++;
+// set method for name to access  
+// private variable geekName 
+public void setPassword(String newPassword) 
+{ 
+	for(int i = 0; i < newPassword.length(); i++){
+        if(Character.isUpperCase(newPassword.charAt(i))){
+           numCap++;
         }
-        
-        
-        if ((Pass.charAt(x) > 64 && Pass.charAt(x) < 91 )) {
-            caps++;
-        
+        if(Character.isDigit(newPassword.charAt(i))) {
+        	numCount++;
         }
-        
-        
-        
-        passLength = (x + 1);                   
+     }
+	if(newPassword.length() > 15 || newPassword.length() < 10) {
+		System.out.println("Make sure the password is within the correct length requirements.");
+	}else if (numCap < 1) {
+		System.out.println("Make sure you have a Capital Letter in the Password.");
+	}else if (numCount < 1) {
+		System.out.println("Make sure you have at least one number in the password");
+	}else {
+	    password = newPassword;
+	    
+	    System.out.println("The password: " + password + " fits all requirements!");
+	}
 
-    }
-    
-    if ( numbers < 1 ){                                 
-        
-        outcome = "Please add at least one number (1-9) to your password.";
-        
-    }
-    
-    if ( caps < 1 ){
-    
-            outcome = "Please add at least one capital letter.";
-    
-    }
-   
-
-    if ( passLength < 10 ){                              
-        
-        outcome = "Please make your password longer.";
-        
-    }
-                  
-    return (outcome);                        
-    
-}
+} 
