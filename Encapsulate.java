@@ -39,3 +39,4 @@ public void setPassword(String newPassword)
 	}
 
 } 
+}
