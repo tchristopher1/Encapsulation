@@ -6,7 +6,7 @@ private String password;
 private int numCap = 0;
 private int numCount = 0;
 
-```
+
 // get method to access password. 
 public String getPassword()  
 { 
